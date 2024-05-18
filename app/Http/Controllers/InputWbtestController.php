@@ -22,8 +22,6 @@ class InputWbtestController extends Controller
         // Mendapatkan user_id dari pengguna yang saat ini sedang login
         $currentUserId = auth()->user()->id;
 
-        // Mengambil data dari tabel Data_wbtest berdasarkan user_id
-        // $dataWbtest = Input_wbtest::where('user_id', $currentUserId)->get();
         return view('webTest', [
             "title" => "Web Testing",
             "dataUserId" => $currentUserId
@@ -36,44 +34,7 @@ class InputWbtestController extends Controller
      */
     public function create(Request $request)
     {
-        // $allowedExtensionsDomain = ['biz', 'com', 'edu', 'info', 'name', 'net', 'org', 'pro', 'aero', 'asia', 'cat', 'coop', 'edu', 'int', 'jobs', 'tel', 'travel', 'id', 'co'];
-        // $request->validate([
-        //     'server_address' => [
-        //         'required',
-        //         // 'regex:/^(?:(?:[0-9]{1,3}\.){3}[0-9]{1,3})|(?:[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+)$/', // Regex untuk IP atau domain name
-        //         function ($attribute, $value, $fail) {
-        //             // Validasi untuk IPv4
-        //             if (filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false) {
-        //                 return;
-        //             }
-        
-        //             // Validasi untuk domain name
-        //             if (!preg_match('/^(?:[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+)$/', $value)) {
-        //                 $fail($attribute.' is not a valid IPv4 or domain name.');
-        //             }
-        //         },
-        //         function ($attribute, $value, $fail) use ($allowedExtensionsDomain) {
-        //             // Validasi untuk ekstensi domain
-        //             if (preg_match('/^(?:[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+)$/', $value)) {
-        //                 $domainParts = explode('.', $value);
-        //                 $extension = end($domainParts);
-        //                 if (!in_array($extension, $allowedExtensionsDomain)) {
-        //                     $fail($attribute.' is not a valid domain extension.');
-        //                 }
-        //             }
-        //         },
-        //     ],
-        //     'request_count' => 'numeric',
-        //     'connection_count'=> 'numeric',
-        // ]);
-
-        // dd('Input Data Benar!');
-        // if ($request->fails()) {
-        //     // Handle kesalahan validasi di sini
-        //     // return redirect()->back()->withErrors($request)->withInput();
-        //     dd($request->errors()->first());
-        // }
-        // $allowedExtensions = ['biz', 'com', 'edu', 'info', 'name', 'net', 'org', 'pro', 'aero', 'asia', 'cat', 'coop', 'edu', 'int', 'jobs', 'tel', 'travel', 'id', 'co', 'ac.id'];
+       
         function generateUniqueTestId() {
             do {
                 // Menghasilkan karakter 6 huruf acak

@@ -23,36 +23,10 @@ class DataLoadtestController extends Controller
                                         ->latest()
                                         ->first();
 
-        // $dataFromDatabase = YourModel::all(); // Ambil data dari database
-
-        // // Konversi data ke format JSON
-        // $dataLoadtests = array_map(function ($item) {
-        //     return [
-        //         'connection_count' => $item->connection_count,
-        //         'connection_time' => $item->connection_time,
-        //         'wrb' => $item->wrb,
-        //         'lc' => $item->lc,
-        //         'wlc' => $item->wlc,
-        //     ];
-        // }, $data_loadtest->toArray());
-
-        // $dataLoadtest = Data_loadtest::where('user_id', auth()->user()->id)
-        //                                 ->where('field_chart', 'field_chart2')
-        //                                 ->where('algortima_LB', 'round_robin')
-        //                                 ->orderBy('connection_count', 'desc')
-        //                                 // ->orderByRaw('connection_count DESC, created_at ASC')
-        //                                 ->take(3)
-        //                                 ->get();
 
         $dataLoadtest = Data_loadtest::where('user_id', auth()->user()->id)
-                                        // ->where('field_chart', 'field_chart2')
-                                        // ->where('algortima_LB', 'round_robin')
                                         ->where('urutan_pengukuran', $urutan_pengukuran)
                                         ->orderBy('id', 'desc')
-                                        // ->filter(request(['table-search']))
-                                        // ->orderByRaw('connection_count DESC, created_at ASC')
-                                        // ->take(1)
-                                        // ->first();
                                         ->get();
 
         return view('load_analytic.index', [

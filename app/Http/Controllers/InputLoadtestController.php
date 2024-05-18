@@ -22,8 +22,7 @@ class InputLoadtestController extends Controller
 
         return view('loadTest.index', [
             "title" => "Load Balance Testing",
-            "dataUserId" => $currentUserId,
-            // "input_livetest" => InputLivetest::latest()->first(),
+            "dataUserId" => $currentUserId
         ]);
     }
 
@@ -32,7 +31,6 @@ class InputLoadtestController extends Controller
      */
     public function create(Request $request)
     {
-        // $allowedExtensions = ['biz', 'com', 'edu', 'info', 'name', 'net', 'org', 'pro', 'aero', 'asia', 'cat', 'coop', 'edu', 'int', 'jobs', 'tel', 'travel', 'id', 'co'];
 
         function generateUniqueTestId() {
             do {

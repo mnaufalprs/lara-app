@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite(['resources/css/app.css','resources/js/app.js','node_modules/flowbite/dist/flowbite.min.js', 'resources/css/style.css'])
   <title>Halaman {{ $title }}</title>
-  {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> --}}
-  {{-- <link href="css/app.css" rel="stylesheet"> --}}
-  <!-- Tambahkan CSS Swiper -->
-  {{-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> --}}
   @livewireStyles
   @stack('cs')
   </style>
@@ -334,46 +330,55 @@
                 </div>
                 <div class="grid grid-cols-3 gap-4 p-4">
                   <a
-                    href="#"
+                    href="/webTest"
                     class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <div class="text-sm text-gray-900 dark:text-white">Sales</div>
+                  
+                  <svg 
+                    class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400" 
+                    aria-hidden="true" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M5.005 11.19V12l6.998 4.042L19 12v-.81M5 16.15v.81L11.997 21l6.998-4.042v-.81M12.003 3 5.005 7.042l6.998 4.042L19 7.042 12.003 3Z"/>
+                  </svg>
+                    <div class="text-sm text-gray-900 dark:text-white">WebTest</div>
                   </a>
                   <a
-                    href="#"
+                    href="/loadTest"
                     class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
-                      ></path>
-                    </svg>
-                    <div class="text-sm text-gray-900 dark:text-white">Users</div>
+                  <svg 
+                    class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400" 
+                    aria-hidden="true" 
+                    xmlns="http://www.w3.org/2000/svg"  
+                    fill="currentColor" 
+                    viewBox="0 0 24 24">
+                    <path 
+                      stroke="currentColor" 
+                      stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      stroke-width="2" 
+                      d="M8 4H4m0 0v4m0-4 5 5m7-5h4m0 0v4m0-4-5 5M8 20H4m0 0v-4m0 4 5-5m7 5h4m0 0v-4m0 4-5-5"/>
+                  </svg>                  
+                    <div class="text-sm text-gray-900 dark:text-white">LoadTest</div>
                   </a>
                   <a
-                    href="#"
+                    href="/realtimeTest"
                     class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
                   >
-                    <svg
+                    <svg 
+                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400" 
+                      aria-hidden="true" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24">
+                      <path fill-rule="evenodd" 
+                            d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" 
+                            clip-rule="evenodd"/>
+                    </svg>                  
+                    {{-- <svg
                       aria-hidden="true"
                       class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
                       fill="currentColor"
@@ -385,9 +390,76 @@
                         d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z"
                         clip-rule="evenodd"
                       ></path>
-                    </svg>
-                    <div class="text-sm text-gray-900 dark:text-white">Inbox</div>
+                    </svg> --}}
+                    <div class="text-sm text-gray-900 dark:text-white">RealTest</div>
                   </a>
+          
+                  <a
+                    href="/webAnalytic"
+                    class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
+                  >
+                    <svg 
+                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400" 
+                      aria-hidden="true" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="24" height="24" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24">
+                      <path 
+                        fill-rule="evenodd" 
+                        d="M5 5a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2H5Zm9 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H14Zm3 0a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17ZM3 17v-3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm11-2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H14Zm3 0a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z" 
+                        clip-rule="evenodd"/>
+                    </svg>
+                    <div class="text-sm text-gray-900 dark:text-white">
+                      WebAnalytic
+                    </div>
+                  </a>
+                  <a
+                    href="/loadAnalytic"
+                    class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
+                  >
+                    <svg 
+                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400" 
+                      aria-hidden="true" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="24" 
+                      height="24" 
+                      fill="none" 
+                      viewBox="0 0 24 24">
+                      <path stroke="currentColor" 
+                            stroke-linecap="round" 
+                            stroke-width="2" 
+                            d="M7.926 10.898 15 7.727m-7.074 5.39L15 16.29M8 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm12 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm0-11a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+                    </svg>
+                
+                    <div class="text-sm text-gray-900 dark:text-white">
+                      LoadAnalytic
+                    </div>
+                  </a>
+                  <a
+                    href="/realtimeAnalytic"
+                    class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
+                  >
+                    <svg 
+                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400" 
+                      aria-hidden="true" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="24" 
+                      height="24" 
+                      fill="none" 
+                      viewBox="0 0 24 24">
+                      <path stroke="currentColor" 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="2" 
+                            d="M3 15v4m6-6v6m6-4v4m6-6v6M3 11l6-5 6 5 5.5-5.5"/>
+                    </svg>    
+
+                    <div class="text-sm text-gray-900 dark:text-white">
+                      RealAnalytic
+                    </div>
+                  </a>
+                  
                   <a
                     href="/myProfile/"
                     class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
@@ -407,94 +479,6 @@
                     </svg>
                     <div class="text-sm text-gray-900 dark:text-white">
                       Profile
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <div class="text-sm text-gray-900 dark:text-white">
-                      Settings
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
-                      <path
-                        fill-rule="evenodd"
-                        d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <div class="text-sm text-gray-900 dark:text-white">
-                      Products
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
-                      ></path>
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <div class="text-sm text-gray-900 dark:text-white">
-                      Pricing
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm2.5 3a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm6.207.293a1 1 0 00-1.414 0l-6 6a1 1 0 101.414 1.414l6-6a1 1 0 000-1.414zM12.5 10a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <div class="text-sm text-gray-900 dark:text-white">
-                      Billing
                     </div>
                   </a>
                   <form
@@ -589,25 +573,6 @@
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          fill-rule="evenodd"
-                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      My likes</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      ><svg
-                        class="mr-2 w-5 h-5 text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
                           d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"
                         ></path>
                       </svg>
@@ -616,7 +581,7 @@
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/dashboard"
                       class="flex justify-between items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       <span class="flex items-center">
@@ -633,7 +598,7 @@
                             clip-rule="evenodd"
                           ></path>
                         </svg>
-                        Pro version
+                        NavApp
                       </span>
                       <svg
                         aria-hidden="true"
@@ -865,33 +830,7 @@
                   </li>
                 </ul>
               </li>
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"
-                    ></path>
-                    <path
-                      d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
-                    ></path>
-                  </svg>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Messages</span>
-                  <span
-                    class="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 dark:bg-primary-200 dark:text-primary-800"
-                  >
-                    4
-                  </span>
-                </a>
-              </li>
+              
               <li>
                 <button
                   type="button"
@@ -992,46 +931,7 @@
                   <span class="ml-3">Docs</span>
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"
-                    ></path>
-                  </svg>
-                  <span class="ml-3">Components</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span class="ml-3">Help</span>
-                </a>
-              </li>
+              
             </ul>
           </div>
           <div
@@ -1173,110 +1073,7 @@
                     </div>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600"
-                    role="menuitem"
-                  >
-                    <div class="inline-flex items-center">
-                      <svg
-                        aria-hidden="true"
-                        class="h-3.5 w-3.5 rounded-full mr-2"
-                        xmlns="http://www.w3.org/2000/svg"
-                        id="flag-icon-css-de"
-                        viewBox="0 0 512 512"
-                      >
-                        <path fill="#ffce00" d="M0 341.3h512V512H0z" />
-                        <path d="M0 0h512v170.7H0z" />
-                        <path fill="#d00" d="M0 170.7h512v170.6H0z" />
-                      </svg>
-                      Deutsch
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600"
-                    role="menuitem"
-                  >
-                    <div class="inline-flex items-center">
-                      <svg
-                        aria-hidden="true"
-                        class="h-3.5 w-3.5 rounded-full mr-2"
-                        xmlns="http://www.w3.org/2000/svg"
-                        id="flag-icon-css-it"
-                        viewBox="0 0 512 512"
-                      >
-                        <g fill-rule="evenodd" stroke-width="1pt">
-                          <path fill="#fff" d="M0 0h512v512H0z" />
-                          <path fill="#009246" d="M0 0h170.7v512H0z" />
-                          <path fill="#ce2b37" d="M341.3 0H512v512H341.3z" />
-                        </g>
-                      </svg>
-                      Italiano
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600"
-                    role="menuitem"
-                  >
-                    <div class="inline-flex items-center">
-                      <svg
-                        aria-hidden="true"
-                        class="h-3.5 w-3.5 rounded-full mr-2"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        id="flag-icon-css-cn"
-                        viewBox="0 0 512 512"
-                      >
-                        <defs>
-                          <path
-                            id="a"
-                            fill="#ffde00"
-                            d="M1-.3L-.7.8 0-1 .6.8-1-.3z"
-                          />
-                        </defs>
-                        <path fill="#de2910" d="M0 0h512v512H0z" />
-                        <use
-                          width="30"
-                          height="20"
-                          transform="matrix(76.8 0 0 76.8 128 128)"
-                          xlink:href="#a"
-                        />
-                        <use
-                          width="30"
-                          height="20"
-                          transform="rotate(-121 142.6 -47) scale(25.5827)"
-                          xlink:href="#a"
-                        />
-                        <use
-                          width="30"
-                          height="20"
-                          transform="rotate(-98.1 198 -82) scale(25.6)"
-                          xlink:href="#a"
-                        />
-                        <use
-                          width="30"
-                          height="20"
-                          transform="rotate(-74 272.4 -114) scale(25.6137)"
-                          xlink:href="#a"
-                        />
-                        <use
-                          width="30"
-                          height="20"
-                          transform="matrix(16 -19.968 19.968 16 256 230.4)"
-                          xlink:href="#a"
-                        />
-                      </svg>
-                      中文 (繁體)
-                    </div>
-                  </a>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -1285,14 +1082,6 @@
         
     </div>
 
-    {{-- <main class="p-4 md:ml-64 h-auto pt-20" style="background-color: rgb(245 245 245)"> --}}
-    {{-- <main class="p-4 md:ml-64 h-auto pt-20 bg-gray-100"> --}}
-      {{-- @yield('mainClass') --}}
-    {{-- </main> --}}
-
-
-
-{{-- <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script> --}}
 
 <script>
 //fitur dark mode
@@ -1339,7 +1128,6 @@ themeToggleBtn.addEventListener('click', function() {
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-{{-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
 @livewireScripts
 @stack('js')
 

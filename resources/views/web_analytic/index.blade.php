@@ -133,9 +133,6 @@
 {{-- Tabel data pengukuran --}}
 <div class="w-full max-w-full mt-0 mb-6 md:mb-0">
     <div class="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border dark:bg-gray-800 mb-4">
-    {{-- <div
-    class="border-2 rounded-lg border-gray-10 dark:border-gray-600 h-109 mb-4"
-    > --}}
     
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg md:p-4">
         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
@@ -199,12 +196,6 @@
         <table class="w-full z-40 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-x text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    {{-- <th scope="col" class="p-4">
-                        <div class="flex items-center">
-                            <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                        </div>
-                    </th> --}}
                     <th scope="col" class="px-4 py-3">
                         Server Hostname
                     </th>
@@ -237,12 +228,6 @@
             <tbody class="z-50">
                 @foreach( $data_wbtest as $row )
                     <tr class="bg-white border-b z-40 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        {{-- <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td> --}}
                         <th scope="row" class="px-4 py-4 z-40 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <?= $row["server_address"]; ?>
                         </th>
@@ -300,42 +285,26 @@
                 @endforeach
             </tbody>
         </table>
-        {{-- <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
-        <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
-        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
-            <li>
-                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-            </li>
-            <li>
-                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-            </li>
-            <li>
-                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-            </li>
-            <li>
-                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
-            </li>
-            <li>
-                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-            </li>
-            <li>
-                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-            </li>
-            <li>
-        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-            </li>
-        </ul>
-        </nav> --}}
+        
         <nav class="flex items-center flex-column flex-wrap md:flex-row justify-end pt-4" aria-label="Table navigation">
         {{ $data_wbtest->links() }}
         </nav>
     </div>
 
-    {{-- </div> --}}
-
     </div>
 </div>
 {{-- end tabel data pengukuran --}}
 
+@push('js')
+<script>
+    // fitur darkmode
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
+@endpush
 
 @endsection

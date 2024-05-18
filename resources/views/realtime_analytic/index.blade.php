@@ -142,17 +142,7 @@
     </div>
 </div>
 
-{{-- <div class="w-full max-w-full mt-0 mb-6 md:mb-0"> --}}
-    {{-- <div class="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4"> --}}
 
-        {{-- <canvas id="myChart"></canvas> --}}
-        {{-- <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-            <canvas id="myChart"></canvas>
-        </div> --}}
-        
-        
-    {{-- </div> --}}
-{{-- </div> --}}
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 mb-4">
   
   <div
@@ -249,68 +239,6 @@
 </div>
 
 
-
-
-{{-- <div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4 ">
-  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
-                    Service
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Connection Count
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Request Count
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Connection Time (ms)
-                </th>
-                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
-                    Troughput (Kbps)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    -
-                </th>
-                <td class="px-6 py-4">
-                    -
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    -
-                </td>
-                <td class="px-6 py-4">
-                    -
-                </td>
-            </tr>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    -
-                </th>
-                <td class="px-6 py-4">
-                    -
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    -
-                </td>
-                <td class="px-6 py-4">
-                    -
-                </td>
-            </tr>
-            
-        </tbody>
-    </table>
-  </div>
-    
-</div> --}}
-
-
-
 <div class="border-2 border-dashed rounded-lg border-gray-100 dark:border-gray-800 h-32 mb-4">
   <div class="w-full" style="visibility: hidden">
     <label for="user_id_live" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Id</label>
@@ -326,13 +254,15 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
 
-{{-- <!-- Pada halaman HTML sisi client -->
-<script type="module"></script> --}}
-
-{{-- <script type="module">
-
-</script> --}}
-
+<script>
+  // fitur darkmode
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+  } else {
+      document.documentElement.classList.remove('dark')
+  }
+</script>
 
 @endpush
 

@@ -1,39 +1,4 @@
-// // chart untuk connection times
-//   const dataPengukuran1 = [30, 22];
-//   const dataPengukuran2 = [15.7, 24.34];
-//   const labelPengukuran = ['50 Request/sec', '100 Request/sec'];
-//   let latestId = 0; // Menyimpan ID data terakhir yang diterima
 
-//   const ctx = document.getElementById('myChart7').getContext('2d');
-//   const myChart7 = new Chart(ctx, {
-//       type: 'line',
-//       data: {
-//           labels: labelPengukuran,
-//           datasets: [{
-//               label: 'Apache Bench',
-//               data: dataPengukuran1,
-//               borderColor: 'rgba(75, 192, 192, 1)',
-//               backgroundColor: 'rgba(75, 192, 192, 1)',
-//               borderWidth: 1,
-//               fill: false
-//           },
-//           {
-//               label: 'Httperf',
-//               data: dataPengukuran2,
-//               borderColor: 'rgb(75 89 192)',
-//               backgroundColor: 'rgb(75 89 192)',
-//               borderWidth: 1,
-//               fill: false
-//           }]
-//       },
-//       options: {
-//           scales: {
-//               x: {
-//                   // display: false // Menyembunyikan label tanggal pada sumbu x
-//               }
-//           }
-//       }
-//   });
 
 //chart untuk connection times
 const dataPengukuran1 = [{x: '100 connection', net: 30, cogs: 15.7}, {x: '250 connection', net: 22, cogs: 24.34}];

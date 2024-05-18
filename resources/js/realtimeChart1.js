@@ -221,7 +221,7 @@ function updateChart(newDataArray) {
             dataArray6.push(timeTaken);
 
             // Memastikan jumlah data tidak melebihi batas tertentu (misalnya 15 data)
-            const maxLength = 15;
+            const maxLength = 50;
             while (labelsArray.length > maxLength) {
                 labelsArray.shift();
                 dataArray.shift();

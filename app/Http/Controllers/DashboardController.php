@@ -12,12 +12,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // $table_wbtest = Data_wbtest::latest();
 
         return view('dashboard.index', [
             "title" => "Dashboard",
-            // "data_wbtest" => Data_wbtest::all()
-            // "data_wbtest" => Data_wbtest::latest()->filter(request(['table-search']))->paginate(5)->withQueryString(),
             "data_wbtest" => Data_wbtest::where('user_id', auth()->user()->id)
                               ->latest()
                               ->filter(request(['table-search']))

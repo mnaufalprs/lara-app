@@ -27,7 +27,7 @@ connection.connect(function (err) {
 async function getLatestData(dataUserId) {
     return new Promise((resolve, reject) => {
         // Mengambil 15 data terbaru dari database berdasarkan ID
-        connection.query('SELECT * FROM data_livetests WHERE user_id = ? ORDER BY id DESC LIMIT 15', [dataUserId], (error, results, fields) => {
+        connection.query('SELECT * FROM data_livetests WHERE user_id = ? ORDER BY id DESC LIMIT 50', [dataUserId], (error, results, fields) => {
             if (error) {
                 reject(error);
             } else {
@@ -94,66 +94,6 @@ async function getDataLoadTest(dataUserId) {
         });
     });
 }
-
-// // Menerima koneksi dari klien
-// io.on('connection', (socket) => {
-//     // Mendengarkan pesan 'sendDataUserId'
-//     socket.on('sendDataUserId', (dataUserId) => {
-//         console.log('Data user ID diterima:', dataUserId);
-//         // Simpan dataUserId di dalam variabel lokal
-//         socket.data.dataUserId = dataUserId;
-
-//         // Kirim konfirmasi kembali ke klien
-//         socket.emit('dataUserIdAcknowledged');
-//     });
-
-//     // Menerima koneksi dari klien
-//     io.on('connection', async (socket) => {
-//         console.log('Connection');
-
-//         try {
-//             // Mengirim 15 data terbaru saat koneksi berhasil
-//             const initialData = await getLatestData();
-//             socket.emit('data', initialData);
-            
-//             // Membuat fitur realtime update
-//             const updateInterval = setInterval(async () => {
-//                 const latestData = await getLatestData();
-//                 socket.emit('data', latestData);
-//             }, 1000);
-
-//             // Mengirim data input_wbtests berdasarkan dataUserId
-//             const initialDatawbinp = await getDataWebInp(socket.data.dataUserId);
-//             socket.emit('datawbtestinp', initialDatawbinp);
-            
-//             // Membuat fitur realtime update untuk data input_wbtests
-//             const updateIntervalwbinp = setInterval(async () => {
-//                 const latestDatawbinp = await getDataWebInp(socket.data.dataUserId);
-//                 socket.emit('datawbtestinp', latestDatawbinp);
-//             }, 100);
-
-//             // Mengirim data data_wbtests berdasarkan dataUserId
-//             const initialDatawb = await getDataWebTest(socket.data.dataUserId);
-//             socket.emit('datawbtest', initialDatawb);
-            
-//             // Membuat fitur realtime update untuk data data_wbtests
-//             const updateIntervalwb = setInterval(async () => {
-//                 const latestDatawb = await getDataWebTest(socket.data.dataUserId);
-//                 socket.emit('datawbtest', latestDatawb);
-//             }, 100);
-
-//             // Menangani koneksi yang terputus
-//             socket.on('disconnect', () => {
-//                 console.log('Disconnect');
-//                 clearInterval(updateInterval);
-//                 clearInterval(updateIntervalwbinp);
-//                 clearInterval(updateIntervalwb);
-//             });
-//         } catch (error) {
-//             console.error('Error fetching data from MySQL database: ' + error);
-//         }
-//     });
-// });
 
 // Menerima koneksi dari klien
 io.on('connection', async (socket) => {

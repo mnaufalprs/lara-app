@@ -12,8 +12,6 @@ class Data_wbtestControler extends Controller
 
         return view('web_analytic.index', [
             "title" => "Web Analytic",
-            // "data_wbtest" => Data_wbtest::all()
-            // "data_wbtest" => Data_wbtest::latest()->filter(request(['table-search']))->paginate(5)->withQueryString(),
             "data_wbtest" => Data_wbtest::where('user_id', auth()->user()->id)
                               ->latest()
                               ->filter(request(['table-search']))

@@ -1,5 +1,17 @@
 const socket = io.connect('http://localhost:3000');
 
+// Ambil nilai $dataUserId dari elemen HTML
+const dataUserIdElement = document.getElementById('user_id_live');
+const dataUserId = dataUserIdElement ? dataUserIdElement.textContent : '';
+
+// Kirim dataUserId ke server Socket.IO saat halaman dimuat
+socket.emit('sendDataUserId', dataUserId);
+
+// Tambahkan listener untuk mengonfirmasi penerimaan data di server
+socket.on('dataUserIdAcknowledged', () => {
+    console.log('Data user ID telah dikirim ke server dan diakui.');
+});
+
 // chart untuk connection times
 const labelsArray = [];
 const dataArray = [];

@@ -6,13 +6,13 @@
 <div class="flex flex-wrap -mx-3 mb-4">
     <!-- card1 -->
     <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-500">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/3 max-w-full px-3">
               <div>
-                <p class="mb-1 font-sans font-semibold leading-normal text-sm">Server address</p>
-                <p class="mb-0 font-bold" style="font-size: 0.785rem;">
+                <p class="mb-1 font-sans font-semibold leading-normal text-sm dark:text-white">Server address</p>
+                <p class="mb-0 font-bold dark:text-gray-300" style="font-size: 0.785rem;">
                   @if(isset($data_loadtest["server_address"]))
                       {{ $data_loadtest["server_address"] }}
                   @else
@@ -37,21 +37,15 @@
 
     <!-- card2 -->
     <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-500">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/3 max-w-full px-3">
               <div>
-                <p class="mb-0 font-sans font-semibold leading-normal text-sm">Best Performance</p>
-                <h5 class="mb-0 font-bold">
-                  {{-- @if(isset($data_livetest->input_livetest->connection_count))
-                    {{ $data_livetest->input_livetest->connection_count }} --}}
-                      
-                  {{-- @else --}}
-                      
-                  {{-- @endif --}}
-                  
-                </h5>
+                <p class="mb-0 font-sans font-semibold leading-normal text-sm dark:text-white">Best Performance</p>
+                <p id="bestPerformance" class="mt-1.5 font-sans font-semibold leading-normal text-xs dark:text-gray-300">
+                  {{-- Placeholder for mostUsedAlgorithm --}}
+                </p>
               </div>
             </div>
             <div class="px-3 text-right basis-1/3">
@@ -69,13 +63,13 @@
 
     <!-- card3 -->
     <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-500">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/3 max-w-full px-3">
               <div>
-                <p class="mb-0 font-sans font-semibold leading-normal text-sm" style="font-size: 9pt">Performance Indicators</p>
-                <h5 class="mb-0 font-bold">
+                <p class="mb-0 font-sans font-semibold leading-normal text-sm dark:text-white" style="font-size: 9pt">Performance Indicators</p>
+                <h5 class="mb-0 font-bold dark:text-gray-300">
                   {{-- @if(isset($data_livetest->input_livetest->request_count))
                       {{ $data_livetest->input_livetest->request_count }}  --}}
                       
@@ -100,7 +94,7 @@
 
     <!-- card4 -->
     <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-500">
         <div class="flex-auto p-4">
           <div class="flex flex-row items-center justify-between">
             <div>
@@ -139,12 +133,18 @@
               </div>
             </div>
             <!-- Tombol delete -->
-            <form id="deleteForm" action="/loadAnalytic/{{ $dataLoadtests }}" method="post" class="d-inline">
+            <form id="deleteForm" action="{{ route('loadAnalytic.destroy', ['loadAnalytic' => $dataLoadtests]) }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
                 <input type="hidden" id="urutanPengukuran" name="urutan_pengukuran">
                 <button type="submit" class="text-white border-0 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 ml-2" onclick="return confirm('Are you sure to DELETE data?')">Delete Data</button>
             </form>
+            {{-- <form id="deleteForm" action="/loadAnalytic/{{ $dataLoadtests }}" method="post" class="d-inline">
+                @method('delete')
+                @csrf
+                <input type="hidden" id="urutanPengukuran" name="urutan_pengukuran">
+                <button type="submit" class="text-white border-0 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 ml-2" onclick="return confirm('Are you sure to DELETE data?')">Delete Data</button>
+            </form> --}}
           </div>
         </div>
       </div>
@@ -152,53 +152,10 @@
     
 </div>
 
-<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4 ">
+<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border dark:bg-gray-800 mb-4 ">
   <div class="flex items-center justify-between">
-    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold">Connection Times (ms)</h1>
-    {{-- <div class="flex items-center">
-      <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
-        <svg class="w-3 h-3 text-gray-500 dark:text-gray-400 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z"/>
-        </svg>
-        Data Pengukuran
-        <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-        </svg>
-      </button>
-      <!-- Dropdown menu -->
-      <div id="dropdownRadio" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px);">
-        <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownRadioButton">
-          <li>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-              <input id="filter-radio-example-1" for="dropdownRadio-1" type="radio" value="1" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-              <label for="filter-radio-example-1" class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Pengukuran ke-1</label>
-            </div>
-          </li>
-          <!-- tambahkan item dropdown radio yang lain di sini -->
-          <li>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-              <input id="filter-radio-example-2" for="dropdownRadio-2" type="radio" value="2" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-              <label for="filter-radio-example-2" class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Pengukuran ke-2</label>
-            </div>
-          </li>
-          <li>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-              <input id="filter-radio-example-3" for="dropdownRadio-3" type="radio" value="3" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-              <label for="filter-radio-example-3" class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Pengukuran ke-3</label>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!-- Tombol delete -->
-
-      <form id="deleteForm" action="/loadAnalytic/{{ $dataLoadtests }}" method="post" class="d-inline">
-          @method('delete')
-          @csrf
-          <input type="hidden" id="urutanPengukuran" name="urutan_pengukuran">
-          <button type="submit" class="text-white border-0 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 ml-2" onclick="return confirm('Are you sure to DELETE data?')">Delete Data</button>
-      </form>
-
-    </div> --}}
+    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold dark:text-white">Connection Times (ms)</h1>
+    
   </div>
 </div>
 
@@ -221,7 +178,7 @@
                 @php
                     $request_count_ldchart1 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
                 @endphp
-                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
                 @break 
             @endif
           @endforeach
@@ -240,7 +197,7 @@
               @php
                   $request_count_ldchart2 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -258,7 +215,7 @@
               @php
                   $request_count_ldchart3 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -271,9 +228,9 @@
       {{-- <h3 class="mt-2 mb-2 ml-2 font-sans font-semibold">Connection Time (ms)</h3> --}}
       <canvas id="ldChart4"></canvas>
       <div class="flex justify-center">
-        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart1 }}, {{ $request_count_ldchart2 }}, {{ $request_count_ldchart3 }} Concurrent (Request/sec)</p>
-        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent (Request/sec)</p>
-        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent (Request/sec)</p> --}}
+        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart1 }}, {{ $request_count_ldchart2 }}, {{ $request_count_ldchart3 }} Concurrent connection</p>
+        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent connection</p>
+        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent connection</p> --}}
       </div>
     </div>
   
@@ -281,9 +238,9 @@
 
 {{-- untuk parameter troughput --}}
 
-<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4 ">
+<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border dark:bg-gray-800 mb-4 ">
   <div class="flex items-center justify-between">
-    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold">Troughput or Transfer Rate (Kbps)</h1>
+    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold dark:text-white">Troughput or Transfer Rate (Kbps)</h1>
   </div>
 </div>
 
@@ -304,7 +261,7 @@
                 @php
                     $request_count_ldchart5 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
                 @endphp
-                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
                 @break 
             @endif
           @endforeach
@@ -323,7 +280,7 @@
               @php
                   $request_count_ldchart6 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -341,7 +298,7 @@
               @php
                   $request_count_ldchart7 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -354,9 +311,9 @@
       {{-- <h3 class="mt-2 mb-2 ml-2 font-sans font-semibold">Connection Time (ms)</h3> --}}
       <canvas id="ldChart8"></canvas>
       <div class="flex justify-center">
-        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart5 }}, {{ $request_count_ldchart6 }}, {{ $request_count_ldchart7 }} Concurrent (Request/sec)</p>
-        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent (Request/sec)</p>
-        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent (Request/sec)</p> --}}
+        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart5 }}, {{ $request_count_ldchart6 }}, {{ $request_count_ldchart7 }} Concurrent connection</p>
+        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent connection</p>
+        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent connection</p> --}}
       </div>
     </div>
   
@@ -364,9 +321,9 @@
 
 {{-- untuk parameter request/second --}}
 
-<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4 ">
+<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border dark:bg-gray-800 mb-4 ">
   <div class="flex items-center justify-between">
-    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold">RPS or Request per Second (req/sec)</h1>
+    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold dark:text-white">RPS or Request per Second (req/sec)</h1>
   </div>
 </div>
 
@@ -387,7 +344,7 @@
                 @php
                     $request_count_ldchart8 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
                 @endphp
-                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
                 @break 
             @endif
           @endforeach
@@ -406,7 +363,7 @@
               @php
                   $request_count_ldchart9 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -424,7 +381,7 @@
               @php
                   $request_count_ldchart10 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -437,9 +394,9 @@
       {{-- <h3 class="mt-2 mb-2 ml-2 font-sans font-semibold">Connection Time (ms)</h3> --}}
       <canvas id="ldChart12"></canvas>
       <div class="flex justify-center">
-        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart8 }}, {{ $request_count_ldchart9 }}, {{ $request_count_ldchart10 }} Concurrent (Request/sec)</p>
-        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent (Request/sec)</p>
-        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent (Request/sec)</p> --}}
+        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart8 }}, {{ $request_count_ldchart9 }}, {{ $request_count_ldchart10 }} Concurrent connection</p>
+        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent connection</p>
+        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent connection</p> --}}
       </div>
     </div>
   
@@ -447,9 +404,9 @@
 
 {{-- untuk parameter time/request --}}
 
-<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4 ">
+<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border dark:bg-gray-800 mb-4 ">
   <div class="flex items-center justify-between">
-    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold">Time per Request (ms)</h1>
+    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold dark:text-white">Time per Request (ms)</h1>
   </div>
 </div>
 
@@ -470,7 +427,7 @@
                 @php
                     $request_count_ldchart11 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
                 @endphp
-                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
                 @break 
             @endif
           @endforeach
@@ -489,7 +446,7 @@
               @php
                   $request_count_ldchart12 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -507,7 +464,7 @@
               @php
                   $request_count_ldchart13 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -520,9 +477,9 @@
       {{-- <h3 class="mt-2 mb-2 ml-2 font-sans font-semibold">Connection Time (ms)</h3> --}}
       <canvas id="ldChart16"></canvas>
       <div class="flex justify-center">
-        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart11 }}, {{ $request_count_ldchart12 }}, {{ $request_count_ldchart13 }} Concurrent (Request/sec)</p>
-        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent (Request/sec)</p>
-        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent (Request/sec)</p> --}}
+        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart11 }}, {{ $request_count_ldchart12 }}, {{ $request_count_ldchart13 }} Concurrent connection</p>
+        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent connection</p>
+        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent connection</p> --}}
       </div>
     </div>
   
@@ -530,9 +487,9 @@
 
 {{-- untuk parameter time testing --}}
 
-<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4 ">
+<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border dark:bg-gray-800 mb-4 ">
   <div class="flex items-center justify-between">
-    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold">Time Testing (s)</h1>
+    <h1 class="mt-2 mb-2 ml-4 font-sans font-semibold dark:text-white">Time Testing (s)</h1>
   </div>
 </div>
 
@@ -553,7 +510,7 @@
                 @php
                     $request_count_ldchart14 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
                 @endphp
-                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+                <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
                 @break 
             @endif
           @endforeach
@@ -572,7 +529,7 @@
               @php
                   $request_count_ldchart15 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -590,7 +547,7 @@
               @php
                   $request_count_ldchart16 = intval($dataLoadtest->request_count); // menyimpan nilai ke dalam variabel
               @endphp
-              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent (Request/sec)</p>
+              <p class="mt-2 mb-2 font-sans">{{ intval($dataLoadtest->request_count) }} Concurrent connection</p>
               @break 
           @endif
         @endforeach
@@ -603,13 +560,20 @@
       {{-- <h3 class="mt-2 mb-2 ml-2 font-sans font-semibold">Connection Time (ms)</h3> --}}
       <canvas id="ldChart20"></canvas>
       <div class="flex justify-center">
-        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart14 }}, {{ $request_count_ldchart15 }}, {{ $request_count_ldchart16 }} Concurrent (Request/sec)</p>
-        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent (Request/sec)</p>
-        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent (Request/sec)</p> --}}
+        <p class="mt-2 mb-2 font-sans">{{ $request_count_ldchart14 }}, {{ $request_count_ldchart15 }}, {{ $request_count_ldchart16 }} Concurrent connection</p>
+        {{-- <p class="mb-2 mr-2 ml-2 font-sans">100 Concurrent connection</p>
+        <p class="mb-2 mr-2 ml-2 font-sans">300 Concurrent connection</p> --}}
       </div>
     </div>
   
 </div>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table id="table-container" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+
+  </table>
+</div>
+
 
 
 
@@ -681,6 +645,75 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     // Mendapatkan formulir delete berdasarkan ID
+//     const deleteForm = document.getElementById('deleteForm');
+//     const urutanPengukuranInput = document.getElementById('urutanPengukuran');
+//     const dropdownItems = document.querySelectorAll('#dropdownRadio input[type="radio"]');
+
+//     // Event listener untuk submit formulir delete
+//     deleteForm.addEventListener('submit', function(event) {
+//         event.preventDefault();
+
+//         // Mendapatkan nilai urutan_pengukuran dari input radio yang dipilih
+//         let urutanPengukuran = null;
+//         dropdownItems.forEach(function(item) {
+//             if (item.checked) {
+//                 urutanPengukuran = item.value;
+//             }
+//         });
+
+//         if (!urutanPengukuran) {
+//             alert('Please select a measurement order from the dropdown.');
+//             return;
+//         }
+
+//         // Kirim permintaan POST menggunakan fetch
+//         fetch('/loadAnalytic', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
+//             },
+//             body: JSON.stringify({ urutan_pengukuran: urutanPengukuran })
+//         })
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             console.log('Data deleted successfully:', data);
+//             window.location.reload(); // Reload halaman setelah penghapusan berhasil
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//             alert('An error occurred while deleting data.');
+//         });
+//     });
+
+//     // Menangani pilihan dropdown dan nilai urutan_pengukuran dari URL
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const selectedValue = urlParams.get('urutan_pengukuran');
+
+//     if (selectedValue) {
+//         dropdownItems.forEach(function(item) {
+//             if (item.value === selectedValue) {
+//                 item.checked = true;
+//             }
+//         });
+//     }
+
+//     // Event listener untuk setiap tombol dropdown
+//     dropdownItems.forEach(function(item) {
+//         item.addEventListener('change', function() {
+//             const selectedValue = this.value;
+//             window.location.href = window.location.pathname + '?urutan_pengukuran=' + selectedValue;
+//         });
+//     });
+// });
 
 
 </script>
@@ -1204,104 +1237,388 @@ for (const req in dataNoLB) {
         number++; // Meningkatkan counter untuk nama variabel berikutnya
     }
 }
-// console.log(dataNoLB1);
-// console.log(dataNoLB2);
-// console.log(dataNoLB3);
+// console.log("p1 :", dataNoLB1);
+// console.log("p2 :", dataNoLB2);
+// console.log("p3 :", dataNoLB3);
+// Mengecek apakah variabel dataNoLB1, dataNoLB2, dan dataNoLB3 sudah didefinisikan
+if (typeof dataNoLB1 === 'undefined') {
+    dataNoLB1 = [
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        },
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        },
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        }
+    ];
+}
 
-// Fungsi untuk menemukan nilai terkecil dari rb_cn, wrb_cn, lc_cn, wlc_cn / performa terbaik
+if (typeof dataNoLB2 === 'undefined') {
+    dataNoLB2 = [
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        },
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        },
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        }
+    ];
+}
+
+if (typeof dataNoLB3 === 'undefined') {
+    dataNoLB3 = [
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        },
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        },
+        {
+            "x": "",
+            "nlb_cn": 0,
+            "nlb_tr": 0,
+            "nlb_rs": 0,
+            "nlb_trq": 0,
+            "nlb_tt": 0,
+            "conn": 0,
+            "req": 0
+        }
+    ];
+}
+
+// console.log("p1 :", dataNoLB1);
+// console.log("p2 :", dataNoLB2);
+// console.log("p3 :", dataNoLB3);
+
+
+// function nilaiterkecil(data) {
+//     let minValues = [];
+//     data.forEach((entry, index) => {
+//         // Helper function to filter out empty values and find the min
+//         const findMin = (values) => Math.min(...values.filter(value => value !== undefined && value !== null && value !== ''));
+
+//         // Helper function to filter out empty values and find the max
+//         const findMax = (values) => Math.max(...values.filter(value => value !== undefined && value !== null && value !== ''));
+
+//         // Calculate min and max values
+//         let rb_cn_values = [entry.rb_cn, entry.wrb_cn, entry.lc_cn, entry.wlc_cn];
+//         let rb_tr_values = [entry.rb_tr, entry.wrb_tr, entry.lc_tr, entry.wlc_tr];
+//         let rb_rs_values = [entry.rb_rs, entry.wrb_rs, entry.lc_rs, entry.wlc_rs];
+//         let rb_trq_values = [entry.rb_trq, entry.wrb_trq, entry.lc_trq, entry.wlc_trq];
+//         let rb_tt_values = [entry.rb_tt, entry.wrb_tt, entry.lc_tt, entry.wlc_tt];
+
+//         let hasil1;
+//         let hasil2 = findMin(rb_cn_values);
+//         if (hasil2 === entry.rb_cn) {
+//             hasil1 = 'round_robin';
+//         } else if (hasil2 === entry.wrb_cn) {
+//             hasil1 = 'weight_round_robin';
+//         } else if (hasil2 === entry.lc_cn) {
+//             hasil1 = 'least_connection';
+//         } else if (hasil2 === entry.wlc_cn) {
+//             hasil1 = 'weight_least_connection';
+//         }
+
+//         let hasil1b;
+//         let hasil2b = findMax(rb_tr_values);
+//         if (hasil2b === entry.rb_tr) {
+//             hasil1b = 'round_robin';
+//         } else if (hasil2b === entry.wrb_tr) {
+//             hasil1b = 'weight_round_robin';
+//         } else if (hasil2b === entry.lc_tr) {
+//             hasil1b = 'least_connection';
+//         } else if (hasil2b === entry.wlc_tr) {
+//             hasil1b = 'weight_least_connection';
+//         }
+
+//         let hasil1c;
+//         let hasil2c = findMax(rb_rs_values);
+//         if (hasil2c === entry.rb_rs) {
+//             hasil1c = 'round_robin';
+//         } else if (hasil2c === entry.wrb_rs) {
+//             hasil1c = 'weight_round_robin';
+//         } else if (hasil2c === entry.lc_rs) {
+//             hasil1c = 'least_connection';
+//         } else if (hasil2c === entry.wlc_rs) {
+//             hasil1c = 'weight_least_connection';
+//         }
+
+//         let hasil1d;
+//         let hasil2d = findMin(rb_trq_values);
+//         if (hasil2d === entry.rb_trq) {
+//             hasil1d = 'round_robin';
+//         } else if (hasil2d === entry.wrb_trq) {
+//             hasil1d = 'weight_round_robin';
+//         } else if (hasil2d === entry.lc_trq) {
+//             hasil1d = 'least_connection';
+//         } else if (hasil2d === entry.wlc_trq) {
+//             hasil1d = 'weight_least_connection';
+//         }
+
+//         let hasil1e;
+//         let hasil2e = findMin(rb_tt_values);
+//         if (hasil2e === entry.rb_tt) {
+//             hasil1e = 'round_robin';
+//         } else if (hasil2e === entry.wrb_tt) {
+//             hasil1e = 'weight_round_robin';
+//         } else if (hasil2e === entry.lc_tt) {
+//             hasil1e = 'least_connection';
+//         } else if (hasil2e === entry.wlc_tt) {
+//             hasil1e = 'weight_least_connection';
+//         }
+
+//         minValues[index] = {
+//             lb_cn: hasil2,
+//             algoritmaLB_cn: hasil1,
+//             lb_tr: hasil2b,
+//             algoritmaLB_tr: hasil1b,
+//             lb_rs: hasil2c,
+//             algoritmaLB_rs: hasil1c,
+//             lb_trq: hasil2d,
+//             algoritmaLB_trq: hasil1d,
+//             lb_tt: hasil2e,
+//             algoritmaLB_tt: hasil1e,
+//             req: entry.req,
+//             conn: entry.conn,
+//         };
+//     });
+//     return minValues;
+// }
+
+// // menjalankan fungsi untuk chart 1
+// // console.log("Ini dataChart1", dataChart1)
+// const hasildata1 = nilaiterkecil(dataChart1);
+// console.log("Nilai terkecil dari setiap propertie rb_cn, wrb_cn, lc_cn, wlc_cn:");
+// // console.log(hasildata1);
+
+// // menjalankan fungsi untuk chart 3
+// const hasildata2 = nilaiterkecil(dataChart2);
+// console.log("Nilai terkecil dari setiap propertie rb_cn, wrb_cn, lc_cn, wlc_cn:");
+// // console.log(hasildata2);
+
+// // menjalankan fungsi untuk chart 2
+// const hasildata3 = nilaiterkecil(dataChart3);
+// console.log("Nilai terkecil dari setiap propertie rb_cn, wrb_cn, lc_cn, wlc_cn:");
+// // console.log(hasildata3);
+
+// console.log(hasildata1);
+// console.log(hasildata2);
+// console.log(hasildata3);
+// Fungsi untuk mendapatkan nilai terkecil dari data
 function nilaiterkecil(data) {
     let minValues = [];
+    if (!data || data.length === 0) return null; // Jika data kosong, kembalikan null
+
     data.forEach((entry, index) => {
-      let hasil1;
-      let hasil2 = Math.min(entry.rb_cn, entry.wrb_cn, entry.lc_cn, entry.wlc_cn);
-      if (hasil2 === entry.rb_cn) {
-          hasil1 = 'round_robin';
-      } else if (hasil2 === entry.wrb_cn) {
-          hasil1 = 'weight_round_robin';
-      } else if (hasil2 === entry.lc_cn) {
-          hasil1 = 'least_connection';
-      } else if (hasil2 === entry.wlc_cn) {
-          hasil1 = 'weight_least_connection';
-      }
+        // Helper function to filter out empty values and find the min
+        const findMin = (values) => Math.min(...values.filter(value => value !== undefined && value !== null && value !== ''));
 
-      let hasil1b;
-      let hasil2b = Math.max(entry.rb_tr, entry.wrb_tr, entry.lc_tr, entry.wlc_tr);
-      if (hasil2b === entry.rb_tr) {
-          hasil1b = 'round_robin';
-      } else if (hasil2b === entry.wrb_tr) {
-          hasil1b = 'weight_round_robin';
-      } else if (hasil2b === entry.lc_tr) {
-          hasil1b = 'least_connection';
-      } else if (hasil2b === entry.wlc_tr) {
-          hasil1b = 'weight_least_connection';
-      }
+        // Helper function to filter out empty values and find the max
+        const findMax = (values) => Math.max(...values.filter(value => value !== undefined && value !== null && value !== ''));
 
-      let hasil1c;
-      let hasil2c = Math.max(entry.rb_rs, entry.wrb_rs, entry.lc_rs, entry.wlc_rs);
-      if (hasil2c === entry.rb_rs) {
-          hasil1c = 'round_robin';
-      } else if (hasil2c === entry.wrb_rs) {
-          hasil1c = 'weight_round_robin';
-      } else if (hasil2c === entry.lc_rs) {
-          hasil1c = 'least_connection';
-      } else if (hasil2c === entry.wlc_rs) {
-          hasil1c = 'weight_least_connection';
-      }
+        // Calculate min and max values
+        let rb_cn_values = [entry.rb_cn, entry.wrb_cn, entry.lc_cn, entry.wlc_cn];
+        let rb_tr_values = [entry.rb_tr, entry.wrb_tr, entry.lc_tr, entry.wlc_tr];
+        let rb_rs_values = [entry.rb_rs, entry.wrb_rs, entry.lc_rs, entry.wlc_rs];
+        let rb_trq_values = [entry.rb_trq, entry.wrb_trq, entry.lc_trq, entry.wlc_trq];
+        let rb_tt_values = [entry.rb_tt, entry.wrb_tt, entry.lc_tt, entry.wlc_tt];
 
-      let hasil1d;
-      let hasil2d = Math.min(entry.rb_trq, entry.wrb_trq, entry.lc_trq, entry.wlc_trq);
-      if (hasil2d === entry.rb_trq) {
-          hasil1d = 'round_robin';
-      } else if (hasil2d === entry.wrb_trq) {
-          hasil1d = 'weight_round_robin';
-      } else if (hasil2d === entry.lc_trq) {
-          hasil1d = 'least_connection';
-      } else if (hasil2d === entry.wlc_trq) {
-          hasil1d = 'weight_least_connection';
-      }
+        let hasil1;
+        let hasil2 = findMin(rb_cn_values);
+        if (hasil2 === entry.rb_cn) {
+            hasil1 = 'round_robin';
+        } else if (hasil2 === entry.wrb_cn) {
+            hasil1 = 'weight_round_robin';
+        } else if (hasil2 === entry.lc_cn) {
+            hasil1 = 'least_connection';
+        } else if (hasil2 === entry.wlc_cn) {
+            hasil1 = 'weight_least_connection';
+        }
 
-      let hasil1e;
-      let hasil2e = Math.min(entry.rb_tt, entry.wrb_tt, entry.lc_tt, entry.wlc_tt);
-      if (hasil2e === entry.rb_tt) {
-          hasil1e = 'round_robin';
-      } else if (hasil2e === entry.wrb_tt) {
-          hasil1e = 'weight_round_robin';
-      } else if (hasil2e === entry.lc_tt) {
-          hasil1e = 'least_connection';
-      } else if (hasil2e === entry.wlc_tt) {
-          hasil1e = 'weight_least_connection';
-      }
-      
-      minValues[index] = {
-          lb_cn: hasil2,
-          algoritmaLB_cn: hasil1,
-          lb_tr: hasil2b,
-          algoritmaLB_tr: hasil1b,
-          lb_rs: hasil2c,
-          algoritmaLB_rs: hasil1c,
-          lb_trq: hasil2d,
-          algoritmaLB_trq: hasil1d,
-          lb_tt: hasil2e,
-          algoritmaLB_tt: hasil1e,
-          req: entry.req,
-          conn: entry.conn,
-      };
+        let hasil1b;
+        let hasil2b = findMax(rb_tr_values);
+        if (hasil2b === entry.rb_tr) {
+            hasil1b = 'round_robin';
+        } else if (hasil2b === entry.wrb_tr) {
+            hasil1b = 'weight_round_robin';
+        } else if (hasil2b === entry.lc_tr) {
+            hasil1b = 'least_connection';
+        } else if (hasil2b === entry.wlc_tr) {
+            hasil1b = 'weight_least_connection';
+        }
+
+        let hasil1c;
+        let hasil2c = findMax(rb_rs_values);
+        if (hasil2c === entry.rb_rs) {
+            hasil1c = 'round_robin';
+        } else if (hasil2c === entry.wrb_rs) {
+            hasil1c = 'weight_round_robin';
+        } else if (hasil2c === entry.lc_rs) {
+            hasil1c = 'least_connection';
+        } else if (hasil2c === entry.wlc_rs) {
+            hasil1c = 'weight_least_connection';
+        }
+
+        let hasil1d;
+        let hasil2d = findMin(rb_trq_values);
+        if (hasil2d === entry.rb_trq) {
+            hasil1d = 'round_robin';
+        } else if (hasil2d === entry.wrb_trq) {
+            hasil1d = 'weight_round_robin';
+        } else if (hasil2d === entry.lc_trq) {
+            hasil1d = 'least_connection';
+        } else if (hasil2d === entry.wlc_trq) {
+            hasil1d = 'weight_least_connection';
+        }
+
+        let hasil1e;
+        let hasil2e = findMin(rb_tt_values);
+        if (hasil2e === entry.rb_tt) {
+            hasil1e = 'round_robin';
+        } else if (hasil2e === entry.wrb_tt) {
+            hasil1e = 'weight_round_robin';
+        } else if (hasil2e === entry.lc_tt) {
+            hasil1e = 'least_connection';
+        } else if (hasil2e === entry.wlc_tt) {
+            hasil1e = 'weight_least_connection';
+        }
+
+        minValues[index] = {
+            lb_cn: hasil2,
+            algoritmaLB_cn: hasil1,
+            lb_tr: hasil2b,
+            algoritmaLB_tr: hasil1b,
+            lb_rs: hasil2c,
+            algoritmaLB_rs: hasil1c,
+            lb_trq: hasil2d,
+            algoritmaLB_trq: hasil1d,
+            lb_tt: hasil2e,
+            algoritmaLB_tt: hasil1e,
+            req: entry.req,
+            conn: entry.conn,
+        };
     });
     return minValues;
 }
 
-// menjalankan fungsi untuk chart 1
-const hasildata1 = nilaiterkecil(dataChart1);
+// Menentukan nilai default
+const defaultData = [
+    {
+        lb_cn: 0,
+        algoritmaLB_cn: " ",
+        lb_tr: 0,
+        algoritmaLB_tr: " ",
+        lb_rs: 0,
+        algoritmaLB_rs: " ",
+        lb_trq: 0,
+        algoritmaLB_trq: " ",
+        lb_tt: 0,
+        algoritmaLB_tt: " ",
+        req: 0,
+        conn: 0,
+    },
+    {
+        lb_cn: 0,
+        algoritmaLB_cn: " ",
+        lb_tr: 0,
+        algoritmaLB_tr: " ",
+        lb_rs: 0,
+        algoritmaLB_rs: " ",
+        lb_trq: 0,
+        algoritmaLB_trq: " ",
+        lb_tt: 0,
+        algoritmaLB_tt: " ",
+        req: 0,
+        conn: 0,
+    },
+    {
+        lb_cn: 0,
+        algoritmaLB_cn: " ",
+        lb_tr: 0,
+        algoritmaLB_tr: " ",
+        lb_rs: 0,
+        algoritmaLB_rs: " ",
+        lb_trq: 0,
+        algoritmaLB_trq: " ",
+        lb_tt: 0,
+        algoritmaLB_tt: " ",
+        req: 0,
+        conn: 0,
+    }
+];
+
+// Menjalankan fungsi untuk chart 1
+const hasildata1 = nilaiterkecil(dataChart1) ?? defaultData;
 console.log("Nilai terkecil dari setiap propertie rb_cn, wrb_cn, lc_cn, wlc_cn:");
 console.log(hasildata1);
 
-// menjalankan fungsi untuk chart 3
-const hasildata2 = nilaiterkecil(dataChart2);
+// Menjalankan fungsi untuk chart 2
+const hasildata2 = nilaiterkecil(dataChart2) ?? defaultData;
 console.log("Nilai terkecil dari setiap propertie rb_cn, wrb_cn, lc_cn, wlc_cn:");
 console.log(hasildata2);
 
-// menjalankan fungsi untuk chart 2
-const hasildata3 = nilaiterkecil(dataChart3);
+// Menjalankan fungsi untuk chart 3
+const hasildata3 = nilaiterkecil(dataChart3) ?? defaultData;
 console.log("Nilai terkecil dari setiap propertie rb_cn, wrb_cn, lc_cn, wlc_cn:");
 console.log(hasildata3);
 
@@ -1353,20 +1670,30 @@ if (typeof dataChart4a !== 'undefined'){
     ...dataChart4c.map(entry => ({ x: entry.x, lb: entry.lb_cn, nlb_cn: entry.nlb_cn })),
   ];
 
+  // dataPengukuran4 = [
+  //   ...dataChart4a.map(entry => ({ 
+  //     x: entry.x, 
+  //     lb: entry.lb_cn !== undefined ? entry.lb_cn : 0,
+  //     nlb_cn: entry.nlb_cn !== undefined ? entry.nlb_cn : 0 
+  //   })),
+  //   { x: '', lb: 0, nlb_cn: 0 }, // Menambahkan baris kosong untuk memisahkan grup
+  //   ...dataChart4b.map(entry => ({ 
+  //     x: entry.x, 
+  //     lb: entry.lb_cn !== undefined ? entry.lb_cn : 0,
+  //     nlb_cn: entry.nlb_cn !== undefined ? entry.nlb_cn : 0 
+  //   })),
+  //   { x: '', lb: 0, nlb_cn: 0 }, // Menambahkan baris kosong untuk memisahkan grup
+  //   ...dataChart4c.map(entry => ({ 
+  //     x: entry.x, 
+  //     lb: entry.lb_cn !== undefined ? entry.lb_cn : 0,
+  //     nlb_cn: entry.nlb_cn !== undefined ? entry.nlb_cn : 0 
+  //   })),
+  // ];
+
 } else {
 
   dataPengukuran4 = [
-    // {x: '-', lb: 0, nlb_cn: 0}, 
-    // {x: '-', lb: 0, nlb_cn: 0},
-    // {x: '-', lb: 0, nlb_cn: 0},
-    // {x: '', net: 0, cogs: 0}, // Menambahkan baris kosong untuk memisahkan grup
-    // {x: '-', lb: 0, nlb_cn: 0}, 
-    // {x: '-', lb: 0, nlb_cn: 0},
-    // {x: '-', lb: 0, nlb_cn: 0},
-    // {x: '', net: 0, cogs: 0}, // Menambahkan baris kosong untuk memisahkan grup
-    // {x: '-', lb: 0, nlb_cn: 0}, 
-    // {x: '-', lb: 0, nlb_cn: 0},
-    // {x: '-', lb: 0, nlb_cn: 0}
+
   ];
 
 }
@@ -2134,6 +2461,183 @@ const ldChart20 = new Chart(ctx20, {
     }
 });
 
+
+//bagian untuk membuat tabel hasil analisa
+function createTable(dataArray) {
+    // Membuat elemen tabel
+    const table = document.createElement('table');
+    table.classList.add('w-full', 'text-sm', 'text-left', 'text-gray-500', 'dark:text-gray-400');
+
+    // Membuat header tabel
+    const thead = document.createElement('thead');
+    thead.classList.add('text-xs', 'text-gray-700', 'uppercase', 'bg-gray-50', 'dark:bg-gray-700', 'dark:text-white');
+
+    const headerRow = document.createElement('tr');
+    const headers = [
+        'Value',
+        'Connection Time',
+        'Value',
+        'Transfer Rate',
+        'Value',
+        'Request per Second',
+        'Value',
+        'Time per Request',
+        'Value',
+        'Time Taken',
+        'Concurrent',
+        'Req Conn'
+    ];
+
+    headers.forEach(headerText => {
+        const cell = document.createElement('th');
+        cell.classList.add('px-6', 'py-3');
+        cell.textContent = headerText;
+        headerRow.appendChild(cell);
+    });
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Membuat body tabel
+    const tbody = document.createElement('tbody');
+    dataArray.forEach(dataItem => {
+        const row = document.createElement('tr');
+        row.classList.add('odd:bg-white', 'odd:dark:bg-gray-900', 'even:bg-gray-50', 'even:dark:bg-gray-900', 'border-b', 'dark:border-gray-700');
+        
+        const properties = [
+            dataItem.lb_cn, dataItem.algoritmaLB_cn,
+            dataItem.lb_tr, dataItem.algoritmaLB_tr,
+            dataItem.lb_rs, dataItem.algoritmaLB_rs,
+            dataItem.lb_trq, dataItem.algoritmaLB_trq,
+            dataItem.lb_tt, dataItem.algoritmaLB_tt,
+            dataItem.req, dataItem.conn
+        ];
+
+        properties.forEach(value => {
+            const cell = document.createElement('td');
+            cell.classList.add('px-6', 'py-4');
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+
+    // Menambahkan tabel ke container yang memiliki ID 'table-container'
+    const container = document.getElementById('table-container');
+    if (container) {
+        container.appendChild(table);
+    } else {
+        console.error('Container with ID "table-container" not found.');
+    }
+}
+
+// Menggunakan fungsi untuk membuat tabel dari data
+const dataArray1 = hasildata1;
+const dataArray2 = hasildata2;
+const dataArray3 = hasildata3;
+
+// Tambahkan tabel ke halaman dengan data dari hasildata1, hasildata2, dan hasildata3
+createTable(dataArray1);
+createTable(dataArray2);
+createTable(dataArray3);
+
+// Fungsi untuk menghitung frekuensi kemunculan algoritma di dataArray
+function countAlgorithms(dataArray) {
+    // Objek untuk menyimpan frekuensi kemunculan setiap algoritma
+    const algorithmFrequency = {};
+
+    // Iterasi melalui dataArray
+    dataArray.forEach(dataItem => {
+        // Array algoritma yang ingin dihitung
+        const algorithms = [
+            dataItem.algoritmaLB_cn,
+            dataItem.algoritmaLB_tr,
+            dataItem.algoritmaLB_rs,
+            dataItem.algoritmaLB_trq,
+            dataItem.algoritmaLB_tt
+        ];
+
+        // Hitung frekuensi kemunculan setiap algoritma
+        algorithms.forEach(algorithm => {
+            if (algorithm in algorithmFrequency) {
+                algorithmFrequency[algorithm]++;
+            } else {
+                algorithmFrequency[algorithm] = 1;
+            }
+        });
+    });
+
+    return algorithmFrequency;
+}
+
+// Menggabungkan hasil penghitungan dari hasildata1, hasildata2, dan hasildata3
+// program untuk menenetukan performa algortima terbaik
+function combineAlgorithmFrequencies(frequency1, frequency2, frequency3) {
+    const combinedFrequency = { ...frequency1 };
+
+    // Tambahkan frekuensi dari frequency2 ke combinedFrequency
+    for (const [algorithm, count] of Object.entries(frequency2)) {
+        if (algorithm in combinedFrequency) {
+            combinedFrequency[algorithm] += count;
+        } else {
+            combinedFrequency[algorithm] = count;
+        }
+    }
+
+    // Tambahkan frekuensi dari frequency3 ke combinedFrequency
+    for (const [algorithm, count] of Object.entries(frequency3)) {
+        if (algorithm in combinedFrequency) {
+            combinedFrequency[algorithm] += count;
+        } else {
+            combinedFrequency[algorithm] = count;
+        }
+    }
+
+    return combinedFrequency;
+}
+
+// Menentukan algoritma mana yang paling banyak digunakan berdasarkan frekuensi
+function determineMostUsedAlgorithm(frequency) {
+    let mostUsedAlgorithm = '';
+    let maxFrequency = 0;
+
+    // Iterasi melalui objek frekuensi untuk menentukan algoritma yang paling banyak digunakan
+    for (const [algorithm, count] of Object.entries(frequency)) {
+        if (count > maxFrequency) {
+            maxFrequency = count;
+            mostUsedAlgorithm = algorithm;
+        }
+    }
+
+    return mostUsedAlgorithm;
+}
+
+// Menghitung frekuensi kemunculan algoritma di setiap dataArray
+const frequency1 = countAlgorithms(hasildata1);
+const frequency2 = countAlgorithms(hasildata2);
+const frequency3 = countAlgorithms(hasildata3);
+
+// Menggabungkan hasil penghitungan dari frequency1, frequency2, dan frequency3
+const combinedFrequency = combineAlgorithmFrequencies(frequency1, frequency2, frequency3);
+
+// Menentukan algoritma yang paling banyak digunakan
+const mostUsedAlgorithm = determineMostUsedAlgorithm(combinedFrequency);
+
+// Menampilkan hasil
+console.log('Algoritma yang paling banyak digunakan:', mostUsedAlgorithm);
+
+// Menentukan elemen HTML dengan id 'bestPerformance'
+const bestPerformanceElement = document.getElementById('bestPerformance');
+
+// Menampilkan mostUsedAlgorithm, atau '-' jika kosong
+if (bestPerformanceElement) {
+    bestPerformanceElement.textContent = mostUsedAlgorithm || '-';
+} else {
+    console.error('Element with ID "bestPerformance" not found.');
+}
 
 
 </script>

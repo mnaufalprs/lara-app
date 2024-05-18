@@ -518,6 +518,158 @@
     </div>
 </div>
 
+{{-- konten untuk monitoring services --}}
+<div id="monitoring-services" class="content-section" style="display: none;">
+
+  <div class="flex flex-wrap -mx-3 mb-4">
+    <!-- card1 -->
+      <div class="w-full max-w-full px-2 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/3">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+        <div class="flex-auto p-4">
+            <div class="flex flex-row -mx-3">
+            <div class="px-3 text-left basis-1/4">
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-500 to-blue-400">
+                    {{-- <svg class="w-[30px] h-[30px] text-gray-800 text-white ml-2 mt-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16 19h4c.6 0 1-.4 1-1v-1a3 3 0 0 0-3-3h-2m-2.2-4A3 3 0 0 0 19 8a3 3 0 0 0-5.2-2M3 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    </svg> --}}
+                    <svg class="w-[30px] h-[30px] text-gray-800 text-white ml-2 mt-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1M5 12h14M5 12a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1m-2 3h.01M14 15h.01M17 9h.01M14 9h.01"/>
+                    </svg>                      
+                </div>
+            </div>
+            <div class="label-m flex-none w-2/4 max-w-full">
+                <h2>Web Server Analytic</h2>
+                <p>Network</p>
+            </div>
+            <div class="flex-none w-1/4 max-w-full px-3">
+              <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl">
+                <a href="/webAnalytic">
+                  <svg class="w-[30px] h-[30px] ml-2 mt-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="silver" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+                  </svg>  
+                </a>           
+              </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <!-- card2 -->
+      <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/3">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+        <div class="flex-auto p-4">
+            <div class="flex flex-row -mx-3">
+            <div class="px-3 text-left basis-1/4">
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-500 to-blue-400">
+                    <svg class="w-[30px] h-[30px] text-gray-800 text-white ml-2 mt-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.926 10.898 15 7.727m-7.074 5.39L15 16.29M8 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm12 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm0-11a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+                    </svg>                      
+                </div>
+            </div>
+            <div class="label-m flex-none w-2/4 max-w-full">
+                <h2>LoadBalance Analytic</h2>
+                <p>Network</p>
+            </div>
+            <div class="flex-none w-1/4 max-w-full px-3">
+              <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl">
+                <a href="/loadAnalytic">
+                  <svg class="w-[30px] h-[30px] ml-2 mt-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="silver" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+                  </svg>  
+                </a>           
+              </div>
+            </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    
+    <!-- card3 -->
+      <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/3">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+        <div class="flex-auto p-4">
+            <div class="flex flex-row -mx-3">
+            <div class="px-3 text-left basis-1/4">
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-500 to-blue-400">
+                <svg class="w-[30px] h-[30px] text-gray-800 text-white ml-2 mt-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15v4m6-6v6m6-4v4m6-6v6M3 11l6-5 6 5 5.5-5.5"/>
+                </svg>                  
+                </div>
+            </div>
+            <div class="label-m flex-none w-2/4 max-w-full">
+                <h2>Realtime Analytic</h2>
+                <p>Network</p>
+            </div>
+            <div class="flex-none w-1/4 max-w-full px-3">
+              <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl">
+                <a href="/realtimeAnalytic">
+                  <svg class="w-[30px] h-[30px] ml-2 mt-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="silver" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+                  </svg> 
+                </a>            
+              </div>
+            </div>
+            </div>
+        </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="jumbotron-model max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mr-4">
+    <a href="#">
+        <img class="jumbotron-model-img rounded-t-lg" src="/img/Logo.png" alt="" />
+    </a>
+    <div class="p-5">
+        <p class="font-label">Network</p>
+        <h1>Web Server Analytic</h1>
+        <p class="font-size">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit rem eos provident reprehenderit maxime quibusdam?</p>
+        <a href="#" class="inline-flex items-center py-2 text-blue-custom text-xs font-medium text-center text-blue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            View Monitoring
+            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 5">
+                <path stroke="rgb(50,153,254)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a>
+    </div>
+  </div>
+
+  <div class="jumbotron-model max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mr-4">
+    <a href="#">
+        <img class="jumbotron-model-img rounded-t-lg" src="/img/Logo.png" alt="" />
+    </a>
+    <div class="p-5">
+        <p class="font-label">Network</p>
+        <h1>Load Balance Analytic</h1>
+        <p class="font-size">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus perferendis neque amet reprehenderit.</p>
+        <a href="#" class="inline-flex items-center py-2 text-blue-custom text-xs font-medium text-center text-blue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            View Monitoring
+            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 5">
+                <path stroke="rgb(50,153,254)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a>
+    </div>
+  </div>
+
+  <div class="jumbotron-model max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mr-4">
+    <a href="#">
+        <img class="jumbotron-model-img rounded-t-lg" src="/img/Logo.png" alt="" />
+    </a>
+    <div class="p-5">
+        <p class="font-label">Network</p>
+        <h1>Realtime Analytic</h1>
+        <p class="font-size">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, quam. Repudiandae, dolorum?</p>
+        <a href="#" class="inline-flex items-center py-2 text-blue-custom text-xs font-medium text-center text-blue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            View Monitoring
+            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 5">
+                <path stroke="rgb(50,153,254)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a>
+    </div>
+  </div>
+
+  
+  </div>
+
 @endsection
 
 

@@ -19,6 +19,7 @@ class DataLoadtestController extends Controller
         
         $data_loadtest = Data_loadtest::where('user_id', auth()->user()->id)
                                         ->where('urutan_pengukuran', $urutan_pengukuran)
+                                        ->where('algortima_LB', '!=', 'no_load_balancer')
                                         ->latest()
                                         ->first();
 
@@ -51,6 +52,7 @@ class DataLoadtestController extends Controller
                                         // ->filter(request(['table-search']))
                                         // ->orderByRaw('connection_count DESC, created_at ASC')
                                         // ->take(1)
+                                        // ->first();
                                         ->get();
 
         return view('load_analytic.index', [
@@ -104,20 +106,33 @@ class DataLoadtestController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(Request $request)
     {
-        // dd($data_loadtest);
-        // Data_loadtest::destroy($data_loadtest);
-
-        $urutan_pengukuran = $request->input('urutan_pengukuran');
-        // $urutan_pengukuran = 2;
-        // dd($urutan_pengukuran);
-
-        // Menggunakan kunci utama dan kriteria pencarian untuk menghapus data
-        Data_loadtest::where('user_id', auth()->user()->id)
-                    ->where('urutan_pengukuran', $urutan_pengukuran)
-                    ->delete();
-                    
-        return redirect()->back()->with('success', 'Data deleted successfully');
+        // Dapatkan nilai urutan_pengukuran dari permintaan
+        $urutanPengukuran = $request->input('urutan_pengukuran');
+    
+        // Pastikan nilai urutan_pengukuran tersedia
+        if (!$urutanPengukuran) {
+            // Kembalikan pesan kesalahan jika urutan_pengukuran tidak tersedia
+            return redirect()->back()->withErrors('Tidak ada urutan_pengukuran yang diberikan.');
+        }
+    
+        // Hapus semua data Data_loadtest berdasarkan urutan_pengukuran
+        Data_loadtest::where('urutan_pengukuran', $urutanPengukuran)
+            ->where('user_id', auth()->user()->id) // Pastikan hanya menghapus data milik pengguna saat ini
+            ->delete();
+    
+        // Redirect ke halaman sebelumnya dengan pesan sukses
+        return redirect()->back()->with('success', 'Data berhasil dihapus.');
     }
+    // public function destroy($urutan_pengukuran)
+    // {
+    //     // Hapus data berdasarkan urutan_pengukuran
+    //     Data_loadtest::where('user_id', auth()->user()->id)
+    //                 ->where('urutan_pengukuran', $urutan_pengukuran)
+    //                 ->delete();
+
+    //     return redirect()->back()->with('success', 'Data deleted successfully');
+    // }
 }

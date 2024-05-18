@@ -10,9 +10,6 @@
     display: grid;
     grid-template-columns: auto 260px;
     grid-gap: 20px;
-    /* display: grid; */
-    /* grid-template-columns: 1fr 1fr; Dua kolom dengan lebar yang sama */
-    /* gap: 20px; Jarak antara kolom */
 }
 
 .welcome-block {
@@ -43,7 +40,7 @@
     padding: 0;
     font-size: 21px;
     line-height: 1.1;
-    color: rgb(9, 27, 37);
+    /* color: rgb(9, 27, 37); */
     font-weight: 400;
     font-weight: bold;
 }
@@ -71,7 +68,7 @@
 }
 
 .text-reject {
-    color: rgb( 128, 128, 128 ) !important;
+    color: rgb( 128, 128, 128 ) ;
     text-align: justify;
 }
 
@@ -91,11 +88,10 @@
     border-style: solid;
     box-sizing: border-box;
     background: white;
-    /* background-image: url(/user/naufalpras3277@gmail.com/static/lab/59ba581….png); */
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: contain;
-    border-color: white;
+    /* border-color: white; */
 }
 
 .default-banner {
@@ -152,11 +148,133 @@
 
 
 .menu-tabs--selected {
-    color: rgb(9, 27, 37) !important;
+    color: rgb(50, 153, 254) !important;
     border-color: rgb(50, 153, 254) !important;
     border-bottom-width: 2px !important;
 }
 
+.label-m p{
+    font-size: 12px;
+    color: rgb(167 167 167);
+}
+
+.text-blue-custom {
+    color: rgb(50, 153, 254); 
+}
+
+.jumbotron-model {
+    width: 280px;
+    height: 300px;
+}
+
+.jumbotron-model .jumbotron-model-img{
+    width: 100%;
+    height: 160px;
+}
+
+.jumbotron-model-1 {
+    width: 280px;
+    height: 100%;
+}
+
+.jumbotron-model-1 .jumbotron-model-img-1{
+    width: 100%;
+    height: 100px;
+}
+
+.font-label {
+    font-size: 12px;
+    color: rgb(167 167 167);
+}
+
+.font-size{
+    font-size: 10px;
+    color: rgb(167 167 167);;
+}
+
+#monitoring-services .flex.flex-wrap {
+    display: flex; /* Menggunakan flexbox */
+    flex-direction: row; /* Menampilkan elemen dalam baris */
+    flex-wrap: nowrap; /* Memastikan elemen tidak membungkus */
+    justify-content: space-between; /* Memberikan ruang di antara elemen */
+}
+
+#monitoring-services .jumbotron-model-all {
+    display: flex; /* Menggunakan flexbox */
+    flex-direction: row; /* Menampilkan elemen dalam baris */
+    justify-content: space-between; /* Memberikan ruang di antara elemen */
+    /* width: 100%;  */
+}
+
+#testing-services .flex.flex-wrap {
+    display: flex; /* Menggunakan flexbox */
+    flex-direction: row; /* Menampilkan elemen dalam baris */
+    flex-wrap: nowrap; /* Memastikan elemen tidak membungkus */
+    justify-content: space-between; /* Memberikan ruang di antara elemen */
+}
+
+#testing-services .jumbotron-model-all {
+    display: flex; /* Menggunakan flexbox */
+    flex-direction: row; /* Menampilkan elemen dalam baris */
+    justify-content: space-between; /* Memberikan ruang di antara elemen */
+    /* width: 100%;  */
+}
+
+/* Atur lebar setiap elemen anak */
+#monitoring-services .flex.flex-wrap > div,
+#monitoring-services .jumbotron-model-all > div,
+/* #monitoring-services #controls-carousel > div, */
+#testing-services .flex.flex-wrap > div,
+#testing-services .jumbotron-model-all > div {
+    flex: 1; /* Membuat elemen fleksibel dan merata */
+    margin-right: 20px; /* Memberikan jarak antara elemen */
+}
+
+/* Menghapus margin terakhir agar elemen terakhir tidak terlalu jauh */
+#monitoring-services .flex.flex-wrap > div:last-child,
+#monitoring-services .jumbotron-model-all > div:last-child,
+/* #monitoring-services #controls-carousel > div:last-child, */
+#testing-services .flex.flex-wrap > div:last-child,
+#testing-services .jumbotron-model-all > div:last-child  {
+    margin-right: 0;
+}
+
+#controls-carousel .relative {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: center; /* Posisikan elemen anak di tengah secara horizontal */
+    align-items: center; /* Posisikan elemen anak di tengah secara vertikal */
+}
+
+
+#controls-carousel .relative [data-carousel-item] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Item harus mengambil lebar penuh dari carousel */
+}
+
+#controls-carousel2 .relative {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: center; /* Posisikan elemen anak di tengah secara horizontal */
+    align-items: center; /* Posisikan elemen anak di tengah secara vertikal */
+}
+
+#controls-carousel2 .relative [data-carousel-item] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Item harus mengambil lebar penuh dari carousel */
+}
+
+/* Atur kolom "Action" */
+td.action-column {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: center; /* Posisikan elemen anak di tengah secara horizontal */
+    align-items: center; /* Posisikan elemen anak di tengah secara vertikal */
+    gap: 5px; /* Beri jarak antara kedua button */
+}
+
+/* Atur ukuran button agar sesuai dengan space kolom */
 
 @media screen and (max-width: 1200px) {
     /* main {
@@ -173,6 +291,11 @@
     .welcome-row {
         grid-template-columns: 1fr;
     }
+
+    #monitoring-services .flex.flex-wrap,
+    #testing-services .flex.flex-wrap {
+        display: block; /* Membungkus elemen ke baris baru jika tidak muat */
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -186,3 +309,33 @@
         padding: 5px;
     }
 }
+
+/* @media screen and (max-width: 1100px) {
+    .controls-carousel-1 {
+        display: block;
+    }
+    
+    .jumbotron-model {
+        display: none;
+    }
+} */
+
+/* @media screen and (max-width: 1100px) { */
+    /* Saat ukuran halaman di bawah 1100px, sembunyikan jumbotron-model-all dan tampilkan controls-carousel */
+    /* .jumbotron-model {
+        display: none;
+    }
+    #controls-carousel {
+        display: block;
+    }
+} */
+
+/* @media screen and (min-width: 1101px) { */
+    /* Saat ukuran halaman di atas 1100px, sembunyikan controls-carousel dan tampilkan jumbotron-model-all */
+    /* .jumbotron-model {
+        display: block;
+    }
+    #controls-carousel {
+        display: none;
+    }
+} */

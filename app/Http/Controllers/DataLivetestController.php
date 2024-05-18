@@ -14,13 +14,16 @@ class DataLivetestController extends Controller
      */
     public function index()
     {
-        $input_livetes2 = InputLivetest::latest()->first();
-        $data_livetest = Data_livetest::latest()->first();
+        // Mendapatkan user_id dari pengguna yang saat ini sedang login
+        $currentUserId = auth()->user()->id;
+        $input_livetes2 = InputLivetest::where('user_id', auth()->user()->id)->latest()->first();
+        $data_livetest = Data_livetest::where('user_id', auth()->user()->id)->latest()->first();
         // dd($data_livetest); // Tambahkan ini untuk melihat data
         return view('realtime_analytic.index', [
             "title" => "Realtime Analytic",
             "data_livetest" => $data_livetest,
             "input_livetest2" => $input_livetes2,
+            "dataUserId" => $currentUserId,
         ]);
     }
 

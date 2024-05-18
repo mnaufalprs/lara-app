@@ -21,7 +21,7 @@
         <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1">
             <div class="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-lg sm:rounded-none sm:rounded-l-lg" src="/img/Naufal.jpg" width="150" alt="Jese Avatar">
+                    <img class="rounded-lg sm:rounded-none sm:rounded-l-lg" src="/img/profile.jpg" width="150" alt="Jese Avatar">
                 </a>
                 <div class="p-9">
                     <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">

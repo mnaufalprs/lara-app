@@ -5,13 +5,13 @@
 <div class="flex flex-wrap -mx-3 mb-4">
 <!-- card1 -->
 <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-600">
     <div class="flex-auto p-4">
         <div class="flex flex-row -mx-3">
         <div class="flex-none w-2/3 max-w-full px-3">
             <div>
-            <p class="mb-1 font-sans font-semibold leading-normal text-sm">Server address</p>
-            <p class="mb-0 font-bold" style="font-size: 0.785rem;">
+            <p class="mb-1 font-sans font-semibold leading-normal text-sm dark:text-white">Server address</p>
+            <p class="mb-0 font-bold dark:text-gray-300" style="font-size: 0.785rem;">
                 @if(isset($data_wbtest[0]['server_address']))
                     {{ $data_wbtest[0]['server_address'] }}
                     {{-- <span class="leading-normal text-sm font-weight-bolder text-lime-500">+55%</span> --}}
@@ -37,13 +37,13 @@
 
 <!-- card2 -->
 <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-600">
     <div class="flex-auto p-4">
         <div class="flex flex-row -mx-3">
         <div class="flex-none w-2/3 max-w-full px-3">
             <div>
-            <p class="mb-0 font-sans font-semibold leading-normal text-sm">Connection Time</p>
-            <h5 class="mb-0 font-bold">
+            <p class="mb-0 font-sans font-semibold leading-normal text-sm dark:text-white">Connection Time</p>
+            <h5 class="mb-0 font-bold dark:text-gray-300">
                 @if(isset($data_wbtest[0]['connection_time']))
                     {{ $data_wbtest[0]['connection_time'] }} ms
                     <span class="leading-normal text-sm font-weight-bolder text-lime-500 ml-2">+55%</span>
@@ -69,13 +69,13 @@
 
 <!-- card3 -->
 <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-600">
     <div class="flex-auto p-4">
         <div class="flex flex-row -mx-3">
         <div class="flex-none w-2/3 max-w-full px-3">
             <div>
-            <p class="mb-0 font-sans font-semibold leading-normal text-sm">Transfer Rate</p>
-            <h5 class="mb-0 font-bold">
+            <p class="mb-0 font-sans font-semibold leading-normal text-sm dark:text-white">Transfer Rate</p>
+            <h5 class="mb-0 font-bold dark:text-gray-300">
                 @if(isset($data_wbtest[0]['transfer_rate']))
                     {{ $data_wbtest[0]['transfer_rate'] }} Kbps
                     <span class="leading-normal text-sm font-weight-bolder text-lime-500 ">+55%</span>
@@ -100,15 +100,15 @@
 
 <!-- card4 -->
 <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-600">
     <div class="flex-auto p-4">
         <div class="flex flex-row -mx-3">
         <div class="flex-none w-2/3 max-w-full px-3">
             <div>
-            <p class="mb-0 font-sans font-semibold leading-normal text-sm">Request Loss</p>
-            <h5 class="mb-0 font-bold">
+            <p class="mb-0 font-sans font-semibold leading-normal text-sm dark:text-white">Request Loss</p>
+            <h5 class="mb-0 font-bold dark:text-gray-300">
             @if(isset($data_wbtest[0]['request_loss']))
-                    {{ $data_wbtest[0]['request_loss'] }} 
+                    {{ $data_wbtest[0]['request_loss'] }} %
                     <span class="leading-normal text-sm font-weight-bolder text-lime-500 ml-2">+55%</span>
             @else
                 - 
@@ -132,7 +132,7 @@
 
 {{-- Tabel data pengukuran --}}
 <div class="w-full max-w-full mt-0 mb-6 md:mb-0">
-    <div class="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4">
+    <div class="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border dark:bg-gray-800 mb-4">
     {{-- <div
     class="border-2 rounded-lg border-gray-10 dark:border-gray-600 h-109 mb-4"
     > --}}
@@ -188,7 +188,7 @@
             {{-- search table --}}
             <label for="table-search" class="sr-only">Search</label>
             <div class="relative">
-            <form action="/dashboard">
+            <form action="/webAnalytic">
                 <div class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                 </div>
@@ -267,19 +267,34 @@
                         <td class="px-6 py-4">
                             <?= $row["request_loss"]; ?>
                         </td>
-                        <td class="px-6 py-4">
-                        <button data-popover-target="popover-top <?= $row["id"]; ?>" data-popover-placement="top" type="button" class="text-white bg-gradient-to-tl from-purple-500 to-blue-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Detail</button>
-
-                        <div data-popover id="popover-top <?= $row["id"]; ?>" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
-                            <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-                                <h3 class="font-semibold text-gray-900 dark:text-white">Other Information</h3>
+                        <td class="action-column px-6 py-4">
+                            <button data-popover-target="popover-top <?= $row["id"]; ?>" data-popover-placement="top" type="button" class="text-white bg-gradient-to-tl from-purple-500 to-blue-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                </svg>                              
+                            </button>
+                        
+                            <div data-popover id="popover-top <?= $row["id"]; ?>" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                    <h3 class="font-semibold text-gray-900 dark:text-white">Other Information</h3>
+                                </div>
+                                <div class="px-3 py-2">
+                                    <p>Request Count: {{ $row->input_wbtest->request_count }} req/s</p>
+                                    <p>Connection Count: {{ $row->input_wbtest->connection_count }}</p>
+                                </div>
+                                <div data-popper-arrow></div>
                             </div>
-                            <div class="px-3 py-2">
-                                <p>Request Count : {{ $row->input_wbtest->request_count }} req/s</p>
-                                <p>Connection Count : {{ $row->input_wbtest->connection_count }}</p>
-                            </div>
-                            <div data-popper-arrow></div>
-                        </div>
+                        
+                            <!-- Form for Delete -->
+                            <form action="{{ route('webAnalytic.destroy', ['webAnalytic' => $row->id]) }}" method="POST" class="inline-block">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" onclick="return confirm('You can delete data, are you sure?')" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm text-center mt-1.5">
+                                    <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0"/>
+                                    </svg>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

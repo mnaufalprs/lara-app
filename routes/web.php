@@ -8,10 +8,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ChartRtsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\Data_wbtestControler;
 use App\Http\Controllers\InputWbtestController;
 use App\Http\Controllers\DataLivetestController;
 use App\Http\Controllers\DataLoadtestController;
+use App\Http\Controllers\DataWbtestController;
 use App\Http\Controllers\InputLivetestController;
 use App\Http\Controllers\InputLoadtestController;
 
@@ -41,14 +41,17 @@ Route::get('/myProfile', function () {
     ]);
 })->middleware('auth');
 
-Route::get('/webTest', function () {
-    return view('webTest', [
-        "title" => "Web Testing"
-    ]);
-})->middleware('auth');
+// Route::get('/webTest', function () {
+//     return view('webTest', [
+//         "title" => "Web Testing"
+//     ]);
+// })->middleware('auth');
+Route::get('/webTest', [InputWbtestController::class, 'index'])->middleware('auth');
 Route::post('/webTest', [InputWbtestController::class, 'create']);
 
-Route::get('/webAnalytic', [Data_wbtestControler::class, 'index'])->middleware('auth');
+Route::get('/webAnalytic', [DataWbtestController::class, 'index'])->name('webAnalytic.index')->middleware('auth');
+// Route::resource('/webAnalytic', DataWbtestController::class)->middleware('auth');
+Route::delete('/webAnalytic/{webAnalytic}', [DataWbtestController::class, 'destroy'])->name('webAnalytic.destroy')->middleware('auth');
 // Route::post('/webAnalytic', [Data_wbtestControler::class, 'create']);
 
 // Route::get('/pingTest', function () {
@@ -61,8 +64,8 @@ Route::post('/loadTest', [InputLoadtestController::class, 'create']);
 
 Route::get('/loadAnalytic', [DataLoadtestController::class, 'index'])->middleware('auth');
 // Route::post('/loadAnalytic', [DataLoadtestController::class, 'destroy']);
-// Route::delete('/loadAnalytic/{dataLoadtests}', [DataLoadtestController::class, 'destroy'])->name('loadAnalytic.destroy');
-Route::resource('/loadAnalytic', DataLoadtestController::class)->middleware('auth');
+Route::delete('/loadAnalytic', [DataLoadtestController::class, 'destroy'])->name('loadAnalytic.destroy');
+// Route::resource('/loadAnalytic', DataLoadtestController::class)->middleware('auth');
 
 Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 // Route::get('/login', [LoginController::class, 'index'])->name('login');

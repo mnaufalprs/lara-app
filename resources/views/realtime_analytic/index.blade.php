@@ -8,13 +8,13 @@
 <div class="flex flex-wrap -mx-3 mb-4">
     <!-- card1 -->
     <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-500">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/3 max-w-full px-3">
               <div>
-                <p class="mb-1 font-sans font-semibold leading-normal text-sm">Server address</p>
-                <p class="mb-0 font-bold" style="font-size: 0.785rem;">
+                <p class="mb-1 font-sans font-semibold leading-normal text-sm dark:text-white">Server address</p>
+                <p class="mb-0 font-bold dark:text-gray-300" style="font-size: 0.785rem;">
                   @if(isset($data_livetest["server_address"]))
                       {{ $data_livetest["server_address"] }}
                       {{-- <span class="leading-normal text-sm font-weight-bolder text-lime-500">+55%</span> --}}
@@ -40,13 +40,13 @@
 
     <!-- card2 -->
     <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-500">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/3 max-w-full px-3">
               <div>
-                <p class="mb-0 font-sans font-semibold leading-normal text-sm">Connection Count</p>
-                <h5 class="mb-0 font-bold">
+                <p class="mb-0 font-sans font-semibold leading-normal text-sm dark:text-white">Connection Count</p>
+                <h5 class="mb-0 font-bold dark:text-gray-300">
                   @if(isset($data_livetest->input_livetest->connection_count))
                     {{ $data_livetest->input_livetest->connection_count }}
                       <span class="leading-normal text-sm font-weight-bolder text-lime-500 ml-2">+55%</span>
@@ -72,13 +72,13 @@
 
     <!-- card3 -->
     <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-500">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/3 max-w-full px-3">
               <div>
-                <p class="mb-0 font-sans font-semibold leading-normal text-sm">Request Count</p>
-                <h5 class="mb-0 font-bold">
+                <p class="mb-0 font-sans font-semibold leading-normal text-sm dark:text-white">Request Count</p>
+                <h5 class="mb-0 font-bold dark:text-gray-300">
                   @if(isset($data_livetest->input_livetest->request_count))
                       {{ $data_livetest->input_livetest->request_count }} 
                       <span class="leading-normal text-sm font-weight-bolder text-lime-500 ">+55%</span>
@@ -103,12 +103,12 @@
 
     <!-- card4 -->
     <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border dark:bg-gray-500">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/4 max-w-full px-3">
               <div>
-                <p class="mb-0 font-sans font-semibold leading-normal text-sm mb-1" style="font-size: 8pt">Status Connection</p>
+                <p class="mb-0 font-sans font-semibold leading-normal text-sm mb-1 dark:text-white" style="font-size: 8pt">Status Connection</p>
                 
                 <h5 class="mb-0 font-bold">
                 @if(isset($input_livetest2["status_connect"]) && $input_livetest2["status_connect"] == 1)
@@ -198,8 +198,8 @@
 
 </div>
 
-<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4 ">
-  <h1 class="mt-2 mb-2 ml-2 font-sans font-semibold">Perbandingan Tools Pengukuran</h1>
+<div class="grid border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border mb-4 dark:bg-gray-800">
+  <h1 class="mt-2 mb-2 ml-2 font-sans font-semibold dark:text-white">Perbandingan Tools Pengukuran</h1>
 </div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 mb-2">
@@ -311,8 +311,11 @@
 
 
 
-<div class="border-2 border-dashed rounded-lg border-gray-100 dark:border-gray-200 h-96 mb-4">
-  
+<div class="border-2 border-dashed rounded-lg border-gray-100 dark:border-gray-800 h-32 mb-4">
+  <div class="w-full" style="visibility: hidden">
+    <label for="user_id_live" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Id</label>
+    <div type="number" name="user_id_live" id="user_id_live" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">{{ $dataUserId }}</div>
+  </div>
 </div>
 
 
